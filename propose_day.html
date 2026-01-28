@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Just For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  animation: fadeIn 2s ease;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  animation: slideUp 1.5s ease;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeInText 2s ease forwards;
+  animation-delay: 2s;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #ff4d6d;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInText 2s ease forwards;
+  animation-delay: 4s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  color: rgba(255,255,255,0.7);
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Hey… ❤️</h1>
+  <p>
+    From the moment I met you,<br>
+    something felt different ✨<br><br>
+    So today, on Propose Day,<br>
+    I just want to ask…
+  </p>
+
+  <button onclick="alert('No pressure 😊 Just wanted you to know ❤️')">
+    Will you be mine? 💖
+  </button>
+</div>
+
+<script>
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerHTML = '❤️';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (15 + Math.random() * 25) + 'px';
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
